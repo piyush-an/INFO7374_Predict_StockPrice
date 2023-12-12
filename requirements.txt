@@ -1,0 +1,13 @@
+pandas
+yfinance
+ta
+seaborn
+matplotlib
+pandas-datareader
+jinja2
+fredapi
+openpyxl
+xgboost
+scikit-learn
+statsmodels
+mlflow
