@@ -3,6 +3,7 @@
 Stock Price Prediction for NVIDIA stocks
 
 ## Objectives:
+0. Presentation slides - [Google Slides](https://docs.google.com/presentation/d/1lu3VtoFbudPkh85tx63-g5CTauhQ6ZcUwARL4rkhEgY/edit)
 1. Focus on the stock you pick and their competitors
     - Report summary statistics of the training period you select and plot the kernel density
     - [1_NVDA_vs_Competitors.ipynb](./notebooks/1_NVDA_vs_Competitors.ipynb)
@@ -24,6 +25,15 @@ Stock Price Prediction for NVIDIA stocks
 
 
 ## Replication Instructions
+
+:exclamation: Date Range to incldues
+
+* Train Range = 01-01-2020 ~ 05-31-2023
+* Predict Range = 06-01-2023 ~ 11-30-2023
+
+> :notebook: All notebooks are Colab compatible.
+
+Local Setup 
 
 1. Creating a Virtual Environment using Pipenv
     1. Install Pipenv if Not Installed:
