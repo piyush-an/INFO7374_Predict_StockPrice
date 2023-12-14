@@ -4,14 +4,11 @@ services:
   mlflow:
     build:
       context: .
-      dockerfile: Dockerfile-MLflow
+      dockerfile: Dockerfile
     container_name: mlflow
     ports:
       - "5000:5000"
-    # environment:
-    #   - MLFLOW_BACKEND_STORE_URI=postgresql://mlflow_user:mlflow_password@mlflow_db/mlflow
     volumes:
-      # /HOST:/CONTAINER
       - "./artifacts:/data/artifacts"
     depends_on:
       - mlflow_db
@@ -23,8 +20,6 @@ services:
       --artifacts-destination /data/artifacts
       --backend-store-uri postgresql://mlflow_user:mlflow_password@mlflow_db:5432/mlflow
       --gunicorn-opts "--timeout 180 --log-level debug --access-logfile -"
-
-    # command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "postgresql://mlflow_user:mlflow_password@mlflow_db/mlflow", "--default-artifact-root", "/mlflow/artifacts"]
 
   mlflow_db:
     image: postgres:latest
@@ -38,18 +33,5 @@ services:
     volumes:
       - mlflow_db_data:/var/lib/postgresql/data
 
-  # ngrok:
-  #   image: ngrok/ngrok:latest
-  #   container_name: ngrok
-  #   restart: unless-stopped
-  #   # command:
-  #   #   - "start"
-  #   #   - "--all"
-  #   #   - "--config"
-  #   #   - "/etc/ngrok.yml"
-  #   # volumes:
-  #   #   - ./ngrok.yml:/etc/ngrok.yml
-  #   ports:
-  #     - 4040:4040
 volumes:
   mlflow_db_data:
